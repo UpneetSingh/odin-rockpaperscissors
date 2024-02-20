@@ -106,37 +106,37 @@ playGame();
 
 if (winCount === 2 && tieCount === 1)
 {
-    console.log("Game tied");
+    console.log("Result: Game tied");
 }
 
 else if (winCount === 2 && tieCount === 2)
 {
-    console.log("You are a winner");
+    console.log("Result: You are a winner");
 }
 
 else if (winCount === 1 && tieCount === 3)
 {
-    console.log("Game tied");
+    console.log("Result: Game tied");
 }
 
 else if (winCount === 2 && tieCount === 3)
 {
-    console.log("You are a winner");
+    console.log("Result: You are a winner");
 }
 
 else if (winCount === 1 && tieCount === 4)
 {
-    console.log("You are a winner");
+    console.log("Result: You are a winner");
 }
 
 else if(winCount < 3)
 {
-    console.log("You are a loser")
+    console.log("Result: You are a loser")
 }
 
 else
 {
-    console.log("You are a winner")
+    console.log("Result: You are a winner")
 }
 
 
