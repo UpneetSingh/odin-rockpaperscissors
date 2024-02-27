@@ -25,27 +25,18 @@ function getComputerChoice()
 
 }
 
-//this function returns player's choice by prompting user
-function getPlayerChoice()
-{  
-    let playerChoice = prompt("Welcome to Rock Paper Scissors! Choose one : Rock, Paper, Scissor");
-    return playerChoice.toLowerCase();
-}
-
 //initializing selection variables and a win,tie counter starting at 0
 let computerSelection;
 let playerSelection;
 let winCount = 0;
 let tieCount = 0;
+let loseCount = 0;
 
 //playRound
 function playRound(playerSelection,computerSelection)
 {
     //Computer plays its turn
     computerSelection = getComputerChoice();
-
-    //Player plays his/her turn
-    playerSelection = getPlayerChoice();
 
     //RoundStarts
 
@@ -58,16 +49,18 @@ function playRound(playerSelection,computerSelection)
     else if(playerSelection === "rock" && computerSelection === "scissor")
         {
             winCount += 1;
-            return result = "You Win! Rock beats scissor";
+            return result = `You Win! Rock beats scissor`;
         }
 
     else if(playerSelection === "rock" && computerSelection === "paper")
         {
+            loseCount +=1;
             return result = "You Lose! Paper beats Rock";
         }
 
     else if(playerSelection === "scissor" && computerSelection === "rock")
         {
+            loseCount +=1;
             return result = "You Lose! Rock beats Scissor";
         }
 
@@ -85,6 +78,7 @@ function playRound(playerSelection,computerSelection)
 
     else if(playerSelection === "paper" && computerSelection === "scissor")
         {
+            loseCount +=1;
             return result = "You Lose! Scissor beats Paper";
         }
    
@@ -93,50 +87,116 @@ function playRound(playerSelection,computerSelection)
 //Game Starts
 function playGame()
 {
-        console.log(playRound(playerSelection,computerSelection));
-        console.log(playRound(playerSelection,computerSelection));  
-        console.log(playRound(playerSelection,computerSelection));
-        console.log(playRound(playerSelection,computerSelection));
-        console.log(playRound(playerSelection,computerSelection));
+    const rockBtn = document.querySelector("#rock");
+    const paperBtn = document.querySelector('#paper');
+    const scissorBtn = document.querySelector('#scissor');
+
+    rockBtn.addEventListener("click", ()=>{
+        const resultDiv = document.querySelector('#result');
+        const para = document.querySelector('#txtResult');
+        resultDiv.appendChild(para);
+        para.textContent =` ${playRound(playerSelection="rock",computerSelection)}. Your Score : ${winCount}. Computer's Score : ${loseCount}`;
+        if(winCount === 5)
+        {
+            const declareDiv = document.querySelector('#final');
+            declareDiv.style.backgroundColor = "yellow";
+            declareDiv.style.border = "5px solid black";
+            const declare = document.querySelector('p');
+            declareDiv.appendChild(declare);
+            declare.textContent = "Result: You Won the Game !! Refresh Browser to play Again!"
+            rockBtn.disabled = true;
+            paperBtn.disabled = true;
+            scissorBtn.disabled = true;
+        }
+
+        else if (loseCount === 5)
+        {
+            const declareDiv = document.querySelector('#final');
+            declareDiv.style.backgroundColor = "red";
+            declareDiv.style.border = "5px solid black";
+            const declare = document.querySelector('p');
+            declareDiv.appendChild(declare);
+            declare.textContent = "Result: You Lost the Game : ( Refresh Browser to play Again!"
+            rockBtn.disabled = true;
+            paperBtn.disabled = true;
+            scissorBtn.disabled = true;
+
+        }
+
+    });
+
+    paperBtn.addEventListener("click",()=>{
+        const resultDiv = document.querySelector('#result');
+        const para = document.querySelector('#txtResult');
+        resultDiv.appendChild(para);
+        para.textContent =` ${playRound(playerSelection="paper",computerSelection)}. Your Score : ${winCount}. Computer's Score : ${loseCount}`;
+        if(winCount === 5)
+        {
+            const declareDiv = document.querySelector('#final');
+            declareDiv.style.backgroundColor = "yellow";
+            declareDiv.style.border = "5px solid black";
+            const declare = document.querySelector('p');
+            declareDiv.appendChild(declare);
+            declare.textContent = "Result: You Won the Game !! Refresh Browser to play Again!"
+            rockBtn.disabled = true;
+            paperBtn.disabled = true;
+            scissorBtn.disabled = true;
+        }
+
+        else if (loseCount === 5)
+        {
+            const declareDiv = document.querySelector('#final');
+            declareDiv.style.backgroundColor = "red";
+            declareDiv.style.border = "5px solid black";
+            const declare = document.querySelector('p');
+            declareDiv.appendChild(declare);
+            declare.textContent = "Result: You Lost the Game : ( Refresh Browser to play Again!"
+            rockBtn.disabled = true;
+            paperBtn.disabled = true;
+            scissorBtn.disabled = true;
+        }
+
+    });
+
+    scissorBtn.addEventListener("click",()=>{
+        const resultDiv = document.querySelector('#result');
+        const para = document.querySelector('#txtResult');
+        resultDiv.appendChild(para);
+        para.textContent =` ${playRound(playerSelection="scissor",computerSelection)}. Your Score : ${winCount}. Computer's Score : ${loseCount}`;
+        if(winCount === 5)
+        {
+            const declareDiv = document.querySelector('#final');
+            declareDiv.style.backgroundColor = "yellow";
+            declareDiv.style.border = "5px solid black";
+            const declare = document.querySelector('p');
+            declareDiv.appendChild(declare);
+            declare.textContent = "Result: You Won the Game !! Refresh Browser to play Again!"
+            rockBtn.disabled = true;
+            paperBtn.disabled = true;
+            scissorBtn.disabled = true;
+        }
+
+        else if (loseCount === 5)
+        {
+            const declareDiv = document.querySelector('#final');
+            declareDiv.style.backgroundColor = "red";
+            declareDiv.style.border = "5px solid black";
+            const declare = document.querySelector('p');
+            declareDiv.appendChild(declare);
+            declare.textContent = "Result: You Lost the Game : ( Refresh Browser to play Again!"
+            rockBtn.disabled = true;
+            paperBtn.disabled = true;
+            scissorBtn.disabled = true;
+        }
+
+    });
+
+
 }
 
 playGame();
 
-//Result
 
-if (winCount === 2 && tieCount === 1)
-{
-    console.log("Result: Game tied");
-}
 
-else if (winCount === 2 && tieCount === 2)
-{
-    console.log("Result: You are a winner");
-}
-
-else if (winCount === 1 && tieCount === 3)
-{
-    console.log("Result: Game tied");
-}
-
-else if (winCount === 2 && tieCount === 3)
-{
-    console.log("Result: You are a winner");
-}
-
-else if (winCount === 1 && tieCount === 4)
-{
-    console.log("Result: You are a winner");
-}
-
-else if(winCount < 3)
-{
-    console.log("Result: You are a loser")
-}
-
-else
-{
-    console.log("Result: You are a winner")
-}
 
 

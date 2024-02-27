@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script type="text/javascript" src="javascript.js"></script>
+    <script type="text/javascript" src="javascript.js" defer></script>
 </head>
 <body>
-    <h1 style="display: flex; justify-content: center;">Rock Paper Scissors</h1>
-    <p style="padding: 3px; display: flex; justify-content: center;">You just played a 5-round game of Rock Paper Scissors against computer.</p>
-    <p style="padding: 3px; display: flex; justify-content: center;">Open your browser's Console tab to view round plays and game result.</p>
-    <p style="padding: 3px; display: flex; justify-content: center;">Refresh your web browser to play again.</p>
+    <div id="intro">
+        <h1 style="display: flex; justify-content: center;">Rock Paper Scissors</h1>
+        <p style="padding: 3px; display: flex; justify-content: center;">You will play a game of Rock Paper Scissors against computer.</p>
+        <p style="padding: 3px; display: flex; justify-content: center;">Each round won will add score 1 to the points table. One who scores 5 points first wins the game.</p>
+        <p style="padding: 3px; display: flex; justify-content: center;">Click any button to start the game.</p>
+    </div> 
+    <div id="game" style="padding: 20px; display: flex; justify-content: space-around; margin-top: 200px;">
+    <button id="rock" style="padding: 10px;"> Click for Rock</button>
+    <button id="paper" style="padding: 10px;"> Click for Paper</button>
+    <button id="scissor" style="padding: 10px;"> Click for Scissor</button>
+    </div>
+    <div id = "result" style="padding: 10px; display: flex; justify-content: center;">
+        <p id ="txtResult"></p>
+    </div>
 
+    <div id ="final">
+        <p></p>
+    </div>
 </body>
 </html>
